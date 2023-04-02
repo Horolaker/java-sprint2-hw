@@ -84,7 +84,7 @@ public class PrintData {
             }
         }
         if (check) {
-            System.out.println("Сверка данных завершена!\nОшибок не обнаруженj!\n");
+            System.out.println("Сверка данных завершена!\nОшибок не обнаружено!\n");
         }
     }
 }

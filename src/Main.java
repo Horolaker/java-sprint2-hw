@@ -10,28 +10,34 @@ public class Main {
         while (true) {
             printMenu();
             int command = scan.nextInt();
+
             if (command == 1) {
                 monthlyReport.loadFile();
+
             } else if (command == 2) {
                 yearlyReport.loadFile();
+
             } else if (command == 3) {
                 if (!yearlyReport.nameOfYearData.isEmpty() && !monthlyReport.nameOfMonthData.isEmpty()) {
                     printData.check();
                 } else {
                     System.out.println("Отчеты не считанны!\n");
                 }
+
             } else if (command == 4) {
                 if (!monthlyReport.nameOfMonthData.isEmpty()) {
                     printData.printMonthData();
                 } else {
                     System.out.println("Месячные отчеты не считанны!\n");
                 }
+
             } else if (command == 5) {
                 if (!yearlyReport.nameOfYearData.isEmpty()) {
                     printData.printYearData();
                 } else {
                     System.out.println("Годовые отчеты не считанны!\n");
                 }
+
             } else if (command == 0) {
                 break;
             } else {
