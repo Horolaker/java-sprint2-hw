@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class PrintData {
     public MonthlyReport monthlyReport;
     public YearlyReport yearlyReport;
