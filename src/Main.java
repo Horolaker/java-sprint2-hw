@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.zip.Checksum;
 
 public class Main {
 
@@ -7,7 +6,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         YearlyReport yearlyReport = new YearlyReport();
         MonthlyReport monthlyReport = new MonthlyReport();
-        PrintData printData = new PrintData(yearlyReport,monthlyReport);
+        PrintData printData = new PrintData(yearlyReport, monthlyReport);
         while (true) {
             printMenu();
             int command = scan.nextInt();

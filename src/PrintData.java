@@ -16,7 +16,7 @@ public class PrintData {
         System.out.println("Год: 2021");
         for (int month = 1; month < 4; month++) {
             int monthProfit = 0;
-            for (YearData yearData : yearlyReport.nameOfYearData) {
+            for (YearData yearData : yearlyReport.nameOfYearData) { //  Считаем доход за месяц + сумму доходов/расходов за год
                 if (month == yearData.month) {
                     if (yearData.is_expense) {
                         monthProfit -= yearData.amount;
@@ -34,13 +34,13 @@ public class PrintData {
     }
 
     void printMonthData() { //Печатает месячные отчеты
-        for (int i : monthlyReport.nameOfMonthData.keySet()) {
+        for (int month : monthlyReport.nameOfMonthData.keySet()) {
             int maxExpense = 0;
             int maxIncome = 0;
             String nameMaxExpense = "";
             String nameMaxIncome = "";
-            System.out.println("Месяц: " + i);
-            for (MonthData monthData : monthlyReport.nameOfMonthData.get(i)) {
+            System.out.println("Месяц: " + month);
+            for (MonthData monthData : monthlyReport.nameOfMonthData.get(month)) { //Достаем и считаем все траты/доходы за месяц
                 int tempVar = monthData.sum_of_one * monthData.quantity;
                 if (monthData.is_expense) {
                     if (tempVar > maxExpense) {
@@ -57,19 +57,19 @@ public class PrintData {
         }
     }
 
-    void check() {
+    void check() { // Сравнение отчетов
         boolean check = true;
         for (int month = 1; month < 4; month++) {
             int sumExpense = 0;
             int sumIncome = 0;
-            for (MonthData monthData : monthlyReport.nameOfMonthData.get(month)) {
+            for (MonthData monthData : monthlyReport.nameOfMonthData.get(month)) { //Подсчет трат и расходов за месяц
                 if (monthData.is_expense) {
                     sumExpense += monthData.sum_of_one * monthData.quantity;
                 } else {
                     sumIncome += monthData.sum_of_one * monthData.quantity;
                 }
             }
-            for (YearData yearData : yearlyReport.nameOfYearData) {
+            for (YearData yearData : yearlyReport.nameOfYearData) { //Сравнение подсчитанных трат и расходов за месяц
                 if (month == yearData.month) {
                     if (yearData.is_expense) {
                         if (yearData.amount != sumExpense) {
@@ -84,7 +84,7 @@ public class PrintData {
             }
         }
         if (check) {
-            System.out.println("Отчеты за месяцы совпадают с годовым отчетом\n");
+            System.out.println("Сверка данных завершена!\nОшибок не обнаруженj!\n");
         }
     }
 }

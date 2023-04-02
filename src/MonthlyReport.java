@@ -8,11 +8,11 @@ public class MonthlyReport {
 
 
     public void loadFile() {
-        for (int month = 1; month < 4; month++) { // Считываем отчет за определенный месяц (Шапку отбрасываем)
-            List<String> linesOfFile = readFileContents("resources/m.20210" + month + ".csv");
+        for (int month = 1; month < 4; month++) { // Считываем отчет за определенный месяц
             ArrayList<MonthData> monthDataArrayList = new ArrayList<>();
-            for (int i = 1; i < linesOfFile.size(); i++) {
-                String line = linesOfFile.get(i);
+            List<String> linesOfFile = readFileContents("resources/m.20210" + month + ".csv");
+            for (int i = 1; i < linesOfFile.size(); i++) { // Из каждой линии достаем значения и записываем их
+                String line = linesOfFile.get(i);          // через конструктор в список
                 String[] data = line.split(",");
                 MonthData monthData = new MonthData(
                         data[0],
