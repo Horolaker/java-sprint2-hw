@@ -1,3 +1,5 @@
+import java.time.Month;
+
 public class PrintData {
     public MonthlyReport monthlyReport;
     public YearlyReport yearlyReport;
@@ -70,11 +72,11 @@ public class PrintData {
                 if (month == yearData.month) {
                     if (yearData.is_expense) {
                         if (yearData.amount != sumExpense) {
-                            System.out.println("Данные трат за " + month + " месяц не совпадают с годовым отчетом\n");
+                            System.out.println("Данные трат за " + Month.of(month) + " не совпадают с годовым отчетом\n");
                             check = false;
                         }
                     } else if (yearData.amount != sumIncome) {
-                        System.out.println("Данные прибыли за " + month + " месяц не совпадают с годовым отчетом\n");
+                        System.out.println("Данные прибыли за " + Month.of(month) + " не совпадают с годовым отчетом\n");
                         check = false;
                     }
                 }
